@@ -30,7 +30,7 @@
                             <div class="login-form">
                                 <h4>Setup</h4>
                                 <form action="<?php echo base_url(); ?>install/exec_place" method="post">
-                                    <?php if ($this->session->flashdata()) { ?>
+                                    <?php if ($this->session->flashdata('errors')) { ?>
                                         <div class="alert alert-danger alert-dismissible fade show">
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             <strong>Warning !</strong> <?=$this->session->flashdata('errors'); ?>.
@@ -68,15 +68,15 @@
                                         <input type="text" name="mosque-postcode" required class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <div id="us3" style="width: 550px; height: 400px;"></div>
+                                        <div style="height:400px; width:auto;" id="map"></div>
                                     </div>
                                     <div class="form-group">
                                         <label>Latitude</label>
-                                        <input type="text" name="mosque-latitude" required class="form-control">
+                                        <input type="text" name="mosque-latitude" required class="form-control" id="latitude" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>Longitude</label>
-                                        <input type="text" name="mosque-longitude" required class="form-control">
+                                        <input type="text" name="mosque-longitude" required class="form-control" id="longitude" readonly>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Next</button>
                                 </form>
@@ -94,5 +94,39 @@
     <script src="<?php echo base_url(); ?>assets/backend/js/sidebarmenu.js"></script>
     <script src="<?php echo base_url(); ?>assets/backend/js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/backend/js/custom.min.js"></script>
+    <script type="text/javascript">
+        var map;
+        function initMap() {                            
+            var latitude = -6.975716257877649;
+            var longitude = 107.63212608980177;
+
+            document.getElementById('latitude').value = latitude;
+            document.getElementById('longitude').value = longitude;
+            
+            var myLatLng = {
+                lat: latitude, 
+                lng: longitude
+            };
+            
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatLng,
+                zoom: 11,
+                disableDoubleClickZoom: true,
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: latitude + ', ' + longitude 
+            });
+            
+            google.maps.event.addListener(map, 'click', function(event) {                
+                document.getElementById('latitude').value = event.latLng.lat();
+                document.getElementById('longitude').value = event.latLng.lng();
+                marker.setPosition(event.latLng);
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfZYlnSEcZ7cOU8FET-72EFRfx_UgAtOw&callback=initMap" async defer></script>
 </body>
 </html>

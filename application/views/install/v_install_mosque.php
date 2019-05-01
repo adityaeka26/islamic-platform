@@ -30,7 +30,7 @@
                             <div class="login-form">
                                 <h4>Setup</h4>
                                 <form action="<?php echo base_url(); ?>install/exec_mosque" method="post">
-                                    <?php if ($this->session->flashdata()) { ?>
+                                    <?php if ($this->session->flashdata('errors')) { ?>
                                         <div class="alert alert-danger alert-dismissible fade show">
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             <strong>Warning !</strong> <?=$this->session->flashdata('errors'); ?>.

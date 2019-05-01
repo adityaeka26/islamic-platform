@@ -30,7 +30,7 @@
                             <div class="login-form">
                                 <h4>Setup</h4>
                                 <form action="<?php echo base_url(); ?>install/exec_account" method="post">
-                                    <?php if ($this->session->flashdata()) { ?>
+                                    <?php if ($this->session->flashdata('errors')) { ?>
                                         <div class="alert alert-danger alert-dismissible fade show">
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             <strong>Warning !</strong> <?=$this->session->flashdata('errors'); ?>.
@@ -50,35 +50,35 @@
                                         <input type="password" name="password" required class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>First Name</label>
+                                        <label>Nama Depan</label>
                                         <input type="text" name="first_name" required class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Last Name</label>
+                                        <label>Nama Belakang</label>
                                         <input type="text" name="last_name" required class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Phone</label>
+                                        <label>Telepon</label>
                                         <input type="text" name="phone" required class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Address</label>
+                                        <label>Alamat</label>
                                         <input type="text" name="address" required class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>City</label>
+                                        <label>Kota</label>
                                         <input type="text" name="city" required class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Province</label>
+                                        <label>Provinsi</label>
                                         <input type="text" name="province" required class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Country</label>
+                                        <label>Negara</label>
                                         <input type="text" name="country" required class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Postcode</label>
+                                        <label>Kode Pos</label>
                                         <input type="text" name="postcode" required class="form-control">
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Setup</button>

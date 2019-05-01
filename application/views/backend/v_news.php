@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <?php
     $this->load->view('backend/inc/v_header.php');
-    $this->load->view('backend/inc/v_menu.php');
+    // $this->load->view('backend/inc/v_menu.php');
     $this->load->view('backend/inc/v_sidebar.php');
 ?>
 

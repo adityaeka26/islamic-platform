@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <?php
-    $this->load->view('backend/inc/v_header.php');
-    $this->load->view('backend/inc/v_menu.php');
+    // $this->load->view('backend/inc/v_header.php');
+    // $this->load->view('backend/inc/v_menu.php');
     $this->load->view('backend/inc/v_sidebar.php');
 ?>
 
@@ -166,18 +166,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div id="us3" style="width: 550px; height: 400px;"></div>
+                                        <div style="height:400px; width:auto; margin:0px 16px;" id="map"></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Latitude</label>
                                         <div class="col-md-12">
-                                            <input type="text" name="mosque-latitude" class="form-control form-control-line" id="us3-lat">
+                                            <input type="text" name="mosque-latitude" class="form-control form-control-line" id="latitude" readonly value="<?php echo $m->lat ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Longitude</label>
                                         <div class="col-md-12">
-                                            <input type="text" name="mosque-longitude" class="form-control form-control-line" id="us3-lon">
+                                            <input type="text" name="mosque-longitude" class="form-control form-control-line" id="longitude" readonly value="<?php echo $m->lon ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -194,3 +194,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
+    <?php foreach($mosque as $m){ ?>
+    <script type="text/javascript">
+        var map;
+        function initMap() {                            
+            var latitude = <?php echo $m->lat ?>;
+            var longitude = <?php echo $m->lon ?>;
+            
+            var myLatLng = {
+                lat: latitude, 
+                lng: longitude
+            };
+            
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatLng,
+                zoom: 11,
+                disableDoubleClickZoom: true,
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: latitude + ', ' + longitude 
+            });
+            
+            google.maps.event.addListener(map, 'click', function(event) {             
+                document.getElementById('latitude').value = event.latLng.lat();
+                document.getElementById('longitude').value = event.latLng.lng();
+                marker.setPosition(event.latLng);
+            });
+        }
+    </script>
+    <?php } ?>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfZYlnSEcZ7cOU8FET-72EFRfx_UgAtOw&callback=initMap" async defer></script>
