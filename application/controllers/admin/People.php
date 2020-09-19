@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class People extends AdminInterface {
 	function __construct(){
 		parent::__construct();		
-		$this->load->model('backend/m_users');
-		$this->load->model('install/m_mosque');
+		$this->load->model('backend/M_users');
+		$this->load->model('install/M_mosque');
 	}
 
 	public function index(){

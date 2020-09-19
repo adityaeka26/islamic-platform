@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class MJD_Controller extends CI_Controller {
     public function __construct() {
         parent::__construct();
-        $this->load->model('install/m_mosque');
+        $this->load->model('install/M_mosque');
 
         $install_status = $this->m_mosque->view_mosque_data()->result();
 

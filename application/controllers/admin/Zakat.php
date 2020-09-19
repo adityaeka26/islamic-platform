@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Zakat extends AdminInterface {
 	function __construct(){
 		parent::__construct();		
-		$this->load->model('backend/m_zakat');
+		$this->load->model('backend/M_zakat');
 	}
 
 	public function index(){

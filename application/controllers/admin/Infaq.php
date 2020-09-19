@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Infaq extends AdminInterface {
 	function __construct(){
 		parent::__construct();		
-		$this->load->model('backend/m_infaq');
+		$this->load->model('backend/M_infaq');
 	}
 
 	public function index(){

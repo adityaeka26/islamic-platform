@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class News extends CI_Controller {
 	function __construct(){
 		parent::__construct();		
-		$this->load->model('frontend/m_mosque_front');
-		$this->load->model('frontend/m_news_front');
+		$this->load->model('frontend/M_mosque_front');
+		$this->load->model('frontend/M_news_front');
 	}
 
 	public function index(){

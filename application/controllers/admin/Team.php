@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Team extends AdminInterface {
 	function __construct(){
 		parent::__construct();		
-		$this->load->model('backend/m_takmir');
+		$this->load->model('backend/M_takmir');
 	}
 
 	public function index(){

@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Router extends CI_Controller {
     function __construct(){
         parent::__construct();		
-        $this->load->model('install/m_mosque');
+        $this->load->model('install/M_mosque');
     }
 
     public function index(){

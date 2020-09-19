@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Account extends AdminInterface {
 	function __construct(){
 		parent::__construct();		
-		$this->load->model('install/m_account');
+		$this->load->model('install/M_account');
 	}
 
 	public function index(){

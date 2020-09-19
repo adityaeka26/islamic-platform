@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Newscategory extends AdminInterface {
 	function __construct(){
 		parent::__construct();		
-		$this->load->model('backend/m_news_category');
+		$this->load->model('backend/M_news_category');
 	}
 
 	public function index(){

@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Event extends AdminInterface {
 	function __construct(){
 		parent::__construct();		
-		$this->load->model('backend/m_event');
+		$this->load->model('backend/M_event');
 	}
 
 	public function index(){
