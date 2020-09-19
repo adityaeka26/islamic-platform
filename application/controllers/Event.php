@@ -9,15 +9,15 @@ class Event extends CI_Controller {
 	}
 
 	public function index(){
-		$data['mosque'] = $this->m_mosque_front->view_mosque_data()->result();
-		$data['event'] = $this->m_event_front->view_event_data()->result();
+		$data['mosque'] = $this->M_mosque_front->view_mosque_data()->result();
+		$data['event'] = $this->M_event_front->view_event_data()->result();
 		$this->load->view('frontend/v_event', $data);
 		$this->load->view('frontend/inc/v_footer', $data);
 	}
 
 	public function detail(){
-		$data['mosque'] = $this->m_mosque_front->view_mosque_data()->result();
-		$data['event'] = $this->m_event_front->view_event_data()->result();
+		$data['mosque'] = $this->M_mosque_front->view_mosque_data()->result();
+		$data['event'] = $this->M_event_front->view_event_data()->result();
 		$this->load->view('frontend/v_event', $data);
 		$this->load->view('frontend/inc/v_footer', $data);
 	}

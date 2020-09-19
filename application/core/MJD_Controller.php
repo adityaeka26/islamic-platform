@@ -6,7 +6,7 @@ class MJD_Controller extends CI_Controller {
         parent::__construct();
         $this->load->model('install/M_mosque');
 
-        $install_status = $this->m_mosque->view_mosque_data()->result();
+        $install_status = $this->M_mosque->view_mosque_data()->result();
 
         if ($install_status == null) {
             redirect(base_url() . 'install/');

@@ -8,7 +8,7 @@ class Event extends AdminInterface {
 	}
 
 	public function index(){
-		$data['event'] = $this->m_event->view_event_data()->result();
+		$data['event'] = $this->M_event->view_event_data()->result();
 		$this->load->view('backend/v_event', $data);
 	}
 
@@ -18,7 +18,7 @@ class Event extends AdminInterface {
 
 	public function edit($id){
 		$where = array('id_task' => $id);
-		$data['event'] = $this->m_event->details_event_data($where)->result();
+		$data['event'] = $this->M_event->details_event_data($where)->result();
 		$this->load->view('backend/v_event_edit', $data);
 	}
 
@@ -34,13 +34,13 @@ class Event extends AdminInterface {
 			'information' => $information,
 			'date' => $date
 		);
-		$this->m_event->insert_event_data($data);
+		$this->M_event->insert_event_data($data);
 		redirect('admin/event/');
 	}
 
 	function delete($id){
 		$where = array('id_task' => $id);
-		$this->m_event->delete_event_data($where);
+		$this->M_event->delete_event_data($where);
 		redirect('admin/event/');
 	}
 
@@ -62,7 +62,7 @@ class Event extends AdminInterface {
 			'id_task' => $id
 		);
 	 
-		$this->m_event->update_event_data($where,$data);
+		$this->M_event->update_event_data($where,$data);
 		redirect('admin/event/');
 	}
 }

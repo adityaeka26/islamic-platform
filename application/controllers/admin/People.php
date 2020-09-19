@@ -9,28 +9,28 @@ class People extends AdminInterface {
 	}
 
 	public function index(){
-		$data['people'] = $this->m_users->view_users_data()->result();
-		$data['people_maps'] = $this->m_users->view_users_data()->result();
-		$data['mosque'] = $this->m_mosque->view_mosque_data()->result();
+		$data['people'] = $this->M_users->view_users_data()->result();
+		$data['people_maps'] = $this->M_users->view_users_data()->result();
+		$data['mosque'] = $this->M_mosque->view_mosque_data()->result();
 		$this->load->view('backend/v_people', $data);
 	}
 
 	public function add(){
-		$data['mosque'] = $this->m_mosque->view_mosque_data()->result();
+		$data['mosque'] = $this->M_mosque->view_mosque_data()->result();
 		$this->load->view('backend/v_people_add');
 		$this->load->view('backend/inc/v_footer_maps.php', $data);
 	}
 
 	public function edit($id){
 		$where = array('id_jamaah' => $id);
-		$data['people'] = $this->m_users->details_users_data($where)->result();
+		$data['people'] = $this->M_users->details_users_data($where)->result();
 		$this->load->view('backend/v_people_edit', $data);
 		$this->load->view('backend/inc/v_footer_maps_edit.php', $data);
 	}
 
 	public function details($id){
 		$where = array('id_jamaah' => $id);
-		$data['people'] = $this->m_users->details_users_data($where)->result();
+		$data['people'] = $this->M_users->details_users_data($where)->result();
 		$this->load->view('backend/v_people_details', $data);
 	}
 
@@ -63,13 +63,13 @@ class People extends AdminInterface {
 			'lon' => $lon,
 			'date_insert' => date('Y-m-d H:i:s')
 		);
-		$this->m_users->insert_users_data($data);
+		$this->M_users->insert_users_data($data);
 		redirect('admin/people/');
 	}
 
 	function delete($id){
 		$where = array('id_jamaah' => $id);
-		$this->m_users->delete_users_data($where);
+		$this->M_users->delete_users_data($where);
 		redirect('admin/people/');
 	}
 
@@ -107,7 +107,7 @@ class People extends AdminInterface {
 			'id_jamaah' => $id
 		);
 	 
-		$this->m_users->update_users_data($where,$data);
+		$this->M_users->update_users_data($where,$data);
 		redirect('admin/people/');
 	}
 }

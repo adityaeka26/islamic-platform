@@ -8,7 +8,7 @@ class Account extends AdminInterface {
 	}
 
 	public function index(){
-		$data['account'] = $this->m_account->view_admin_account()->result();
+		$data['account'] = $this->M_account->view_admin_account()->result();
 		$this->load->view('backend/v_account', $data);
 	}
 
@@ -40,7 +40,7 @@ class Account extends AdminInterface {
 			'id_users' => $id
 		);
 	 
-		$this->m_account->update_admin_account($where, $data);
+		$this->M_account->update_admin_account($where, $data);
 		redirect('admin/account/');
 	}
 }

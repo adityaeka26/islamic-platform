@@ -8,7 +8,7 @@ class Zakat extends AdminInterface {
 	}
 
 	public function index(){
-		$data['zakat'] = $this->m_zakat->view_zakat_data()->result();
+		$data['zakat'] = $this->M_zakat->view_zakat_data()->result();
 		$this->load->view('backend/v_zakat', $data);
 	}
 
@@ -33,13 +33,13 @@ class Zakat extends AdminInterface {
 			'info' => $info,
 			'date_insert' => date('Y-m-d H:i:s')
 		);
-		$this->m_zakat->insert_zakat_data($data);
+		$this->M_zakat->insert_zakat_data($data);
 		redirect('admin/zakat/');
 	}
 
 	function delete($id){
 		$where = array('id_zakat' => $id);
-		$this->m_zakat->delete_zakat_data($where);
+		$this->M_zakat->delete_zakat_data($where);
 		redirect('admin/zakat/');
 	}
 }

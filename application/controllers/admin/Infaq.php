@@ -8,7 +8,7 @@ class Infaq extends AdminInterface {
 	}
 
 	public function index(){
-		$data['infaq'] = $this->m_infaq->view_infaq_data()->result();
+		$data['infaq'] = $this->M_infaq->view_infaq_data()->result();
 		$this->load->view('backend/v_infaq', $data);
 	}
 
@@ -18,7 +18,7 @@ class Infaq extends AdminInterface {
 
 	public function edit($id){
 		$where = array('id_infaq' => $id);
-		$data['infaq'] = $this->m_infaq->details_infaq_data($where)->result();
+		$data['infaq'] = $this->M_infaq->details_infaq_data($where)->result();
 		$this->load->view('backend/v_infaq_edit', $data);
 	}
 
@@ -34,13 +34,13 @@ class Infaq extends AdminInterface {
 			'info' => $info,
 			'date' => $date
 		);
-		$this->m_infaq->insert_infaq_data($data);
+		$this->M_infaq->insert_infaq_data($data);
 		redirect('admin/infaq/');
 	}
 
 	function delete($id){
 		$where = array('id_infaq' => $id);
-		$this->m_infaq->delete_infaq_data($where);
+		$this->M_infaq->delete_infaq_data($where);
 		redirect('admin/infaq/');
 	}
 
@@ -62,7 +62,7 @@ class Infaq extends AdminInterface {
 			'id_infaq' => $id
 		);
 	 
-		$this->m_infaq->update_infaq_data($where,$data);
+		$this->M_infaq->update_infaq_data($where,$data);
 		redirect('admin/infaq/');
 	}
 }

@@ -8,7 +8,7 @@ class Team extends AdminInterface {
 	}
 
 	public function index(){
-		$data['team'] = $this->m_takmir->view_takmir_data()->result();
+		$data['team'] = $this->M_takmir->view_takmir_data()->result();
 		$this->load->view('backend/v_team', $data);
 	}
 
@@ -18,7 +18,7 @@ class Team extends AdminInterface {
 
 	public function edit($id){
 		$where = array('id_takmir' => $id);
-		$data['team'] = $this->m_takmir->details_takmir_data($where)->result();
+		$data['team'] = $this->M_takmir->details_takmir_data($where)->result();
 		$this->load->view('backend/v_team_edit', $data);
 	}
 
@@ -31,13 +31,13 @@ class Team extends AdminInterface {
 			'position' => $position
 		);
 
-		$this->m_takmir->insert_takmir_data($data);
+		$this->M_takmir->insert_takmir_data($data);
 		redirect('admin/team/');
 	}
 
 	function delete($id){
 		$where = array('id_takmir' => $id);
-		$this->m_takmir->delete_takmir_data($where);
+		$this->M_takmir->delete_takmir_data($where);
 		redirect('admin/team/');
 	}
 
@@ -56,7 +56,7 @@ class Team extends AdminInterface {
 			'id_takmir' => $id
 		);
 	 
-		$this->m_takmir->update_takmir_data($where,$data);
+		$this->M_takmir->update_takmir_data($where,$data);
 		redirect('admin/team/');
 	}
 }

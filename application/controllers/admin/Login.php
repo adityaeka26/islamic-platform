@@ -21,10 +21,10 @@ class Login extends CI_Controller {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
         $where = array('email' => $email);
-        $check_login = $this->m_login->checkLogin($where, $password);
+        $check_login = $this->M_login->checkLogin($where, $password);
  
         if ($check_login == true) {
-            $getuserinfo = $this->m_login->getUserInfo($where)->result();
+            $getuserinfo = $this->M_login->getUserInfo($where)->result();
             
             foreach($getuserinfo as $u){
                 $username = $u->username;

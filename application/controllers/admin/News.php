@@ -9,19 +9,19 @@ class News extends AdminInterface {
 	}
 	
 	public function index(){
-		$data['news'] = $this->m_news->view_news_data()->result();
+		$data['news'] = $this->M_news->view_news_data()->result();
 		$this->load->view('backend/v_news', $data);
 	}
 
 	public function add(){
-		$data['news_category'] = $this->m_news_category->view_news_category_data()->result();
+		$data['news_category'] = $this->M_news_category->view_news_category_data()->result();
 		$this->load->view('backend/v_news_add', $data);
 	}
 
 	public function edit($id){
 		$where = array('id_news' => $id);
-		$data['news'] = $this->m_news->details_news_data($where)->result();
-		$data['news_category'] = $this->m_news_category->view_news_category_data()->result();
+		$data['news'] = $this->M_news->details_news_data($where)->result();
+		$data['news_category'] = $this->M_news_category->view_news_category_data()->result();
 		$this->load->view('backend/v_news_edit', $data);
 	}
 
@@ -36,13 +36,13 @@ class News extends AdminInterface {
 			'content' => $content,
 			'date_insert' => date('Y-m-d H:i:s')
 		);
-		$this->m_news->insert_news_data($data);
+		$this->M_news->insert_news_data($data);
 		redirect('admin/news/');
 	}
 
 	function delete($id){
 		$where = array('id_news' => $id);
-		$this->m_news->delete_news_data($where);
+		$this->M_news->delete_news_data($where);
 		redirect('admin/news/');
 	}
 
@@ -62,7 +62,7 @@ class News extends AdminInterface {
 			'id_news' => $id
 		);
 	 
-		$this->m_news->update_news_data($where,$data);
+		$this->M_news->update_news_data($where,$data);
 		redirect('admin/news/');
 	}
 }

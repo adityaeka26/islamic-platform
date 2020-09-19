@@ -43,7 +43,7 @@ class Install extends CI_Controller {
 						'greeting' => $greeting
 				];
 
-				$insert_data = $this->m_mosque->insert_mosque_data($data);
+				$insert_data = $this->M_mosque->insert_mosque_data($data);
 
 				if ($insert_data) {
 						$this->session->set_flashdata('msg', 'Successfully Add Mosque Profile!');
@@ -53,7 +53,7 @@ class Install extends CI_Controller {
 	}
 
 	public function place(){
-		$data['mosque'] = $this->m_mosque->view_mosque_data()->result();
+		$data['mosque'] = $this->M_mosque->view_mosque_data()->result();
 		$this->load->view('install/v_install_place', $data);
 	}
 
@@ -100,7 +100,7 @@ class Install extends CI_Controller {
 					'id_mosque' => $id
 				);
 
-				$update_data = $this->m_mosque->update_mosque_data($where,$data);
+				$update_data = $this->M_mosque->update_mosque_data($where,$data);
 
 				if ($update_data) {
 						$this->session->set_flashdata('msg', 'Successfully Add Mosque Place!');
@@ -160,7 +160,7 @@ class Install extends CI_Controller {
 						'date_joined' => date('Y-m-d H:i:s')
 				];
 
-				$insert_data = $this->m_account->insert_admin_account($data);
+				$insert_data = $this->M_account->insert_admin_account($data);
 
 				if ($insert_data) {
 						$this->session->set_flashdata('msg', 'Successfully Add User Account!');

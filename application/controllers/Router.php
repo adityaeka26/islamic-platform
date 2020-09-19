@@ -8,7 +8,7 @@ class Router extends CI_Controller {
     }
 
     public function index(){
-        $install_status = $this->m_mosque->view_mosque_data()->result();
+        $install_status = $this->M_mosque->view_mosque_data()->result();
 
         if ($install_status == null) {
             redirect(base_url() . 'install/');

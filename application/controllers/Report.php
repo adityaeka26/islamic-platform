@@ -8,7 +8,7 @@ class Report extends CI_Controller {
 	}
 
 	public function index(){
-		$data['mosque'] = $this->m_mosque_front->view_mosque_data()->result();
+		$data['mosque'] = $this->M_mosque_front->view_mosque_data()->result();
 		$this->load->view('frontend/v_report');
 		$this->load->view('frontend/inc/v_footer', $data);
 	}

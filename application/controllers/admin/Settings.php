@@ -10,7 +10,7 @@ class Settings extends AdminInterface {
 	}
 
 	public function index(){
-		$data['mosque'] = $this->m_mosque->view_mosque_data()->result();
+		$data['mosque'] = $this->M_mosque->view_mosque_data()->result();
 		$this->load->view('backend/v_settings', $data);
 		$this->load->view('backend/inc/v_footer_maps.php', $data);
 	}
@@ -63,7 +63,7 @@ class Settings extends AdminInterface {
 			'id_mosque' => $id
 		);
 	 
-		$this->m_mosque->update_mosque_data($where,$data);
+		$this->M_mosque->update_mosque_data($where,$data);
 		redirect('admin/settings/');
 	}
 

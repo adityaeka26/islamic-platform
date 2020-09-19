@@ -8,7 +8,7 @@ class Newscategory extends AdminInterface {
 	}
 
 	public function index(){
-		$data['news_category'] = $this->m_news_category->view_news_category_data()->result();
+		$data['news_category'] = $this->M_news_category->view_news_category_data()->result();
 		$this->load->view('backend/v_category_news', $data);
 	}
 
@@ -18,7 +18,7 @@ class Newscategory extends AdminInterface {
 
 	public function edit($id){
 		$where = array('id_category' => $id);
-		$data['news_category'] = $this->m_news_category->details_news_category_data($where)->result();
+		$data['news_category'] = $this->M_news_category->details_news_category_data($where)->result();
 		$this->load->view('backend/v_category_news_edit', $data);
 	}
 
@@ -28,13 +28,13 @@ class Newscategory extends AdminInterface {
 		$data = array(
 			'name' => $name
 		);
-		$this->m_news_category->insert_news_category_data($data);
+		$this->M_news_category->insert_news_category_data($data);
 		redirect('admin/newscategory/');
 	}
 
 	function delete($id){
 		$where = array('id_category' => $id);
-		$this->m_news_category->delete_news_category_data($where);
+		$this->M_news_category->delete_news_category_data($where);
 		redirect('admin/newscategory/');
 	}
 
@@ -50,7 +50,7 @@ class Newscategory extends AdminInterface {
 			'id_category' => $id
 		);
 	 
-		$this->m_news_category->update_news_category_data($where,$data);
+		$this->M_news_category->update_news_category_data($where,$data);
 		redirect('admin/newscategory/');
 	}
 }
